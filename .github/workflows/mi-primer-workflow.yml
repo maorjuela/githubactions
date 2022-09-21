@@ -1,15 +1,16 @@
-name: Mi primer workflow
+name: Hola mundo
 on:
   push:
-    branches: [master]
-
+    branches: [ master ]
 jobs:
-  mi_primer_job:
+  Mi-primer-job:
     name: Mi primer job
     runs-on: ubuntu-latest
-  steps:
+    outputs:
+      salida: ${{ steps.imprimir.outputs.respuesta }}
+    steps:
     - name: Imprimir
+      id: imprimir
       env:
         MI_VARIABLE: Hola mundo
-      run:
-        echo $MI_VARIABLE
+      run: echo "::set-output name=respuesta::${MI_VARIABLE}"
