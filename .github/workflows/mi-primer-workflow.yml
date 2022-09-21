@@ -7,8 +7,9 @@ jobs:
     name: Mi primer job
     runs-on: ubuntu-latest
   steps:
-  - name: Imprimir
-    env:
-      MI_VARIABLE: Hola munod
-    run:
-      echo $MI_VARIABLE
+    - name: Imprimir
+      id: imprimir
+      env:
+        MI_VARIABLE: Hola munod
+      run:
+        echo $MI_VARIABLE
